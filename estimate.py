@@ -2,22 +2,39 @@ import unittest
 import math
 import random
 
-def wallis(n)
-pi=1.0
-for i in range(n)
-pi*= (2.0*i)/(2*i-1)*(2.0*i)(2*i+1)
-return pi
+import random
+import math
+
+def wallis(n):
+    l=[]
+    final_product=1
+    for i in range(n):
+        l.append(4*((i+1)**2)/(4*((i+1)**2)-1))
+    for i in range(n):
+        final_product = final_product * l[i]
+    print(final_product*2)    
+    return(final_product*2)
 
 
-def monte_carlo(overall)
-inside = 0
-for i in range (0,overall)
-x=random.random()**2
-y=random.random()**2
-if math.sqrt(x**2 + y**2) < 1.0:
-	inside +=1
-	pi= (float(inside)/overall)*4
-return pi
+
+
+
+
+def monte_carlo(n):
+    incir=0
+    insqr=0
+    for i in range(n):
+        x=random.random()
+        y=random.random()
+        z=math.sqrt((float(x)**2)+(float(y)**2))
+        if z<=1.0:
+            incir=incir+1
+        else:
+            insqr=insqr+1
+    print(incir*4*4/(incir*4+insqr*4))
+    return (incir*4*4/(incir*4+insqr*4))
+
+
 
 
 class TestWallis(unittest.TestCase):
